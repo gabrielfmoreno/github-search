@@ -1,16 +1,58 @@
-# React + Vite
+# GitHub Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application that allows users to search for GitHub profiles and explore their repositories using the public GitHub API.
 
-Currently, two official plugins are available:
+## Live Application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://github-search-sooty-eight.vercel.app/
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Search GitHub users by username
+- Display user profile information
+- List repositories with infinite scroll (10 items per page)
+- Sort repositories by different criteria (created, updated, pushed, name)
+- Open repositories directly on GitHub
+- Access user external links (website and Twitter if available)
+- Internationalization (Portuguese and English)
+- Responsive design for desktop and mobile devices
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Chakra UI
+- Axios
+- i18next
+- Zod
+- React Router
+
+## Project Structure
+
+- Home page for user search
+- Profile page with dynamic route: /profile/:username
+- Service layer for API requests
+- Component-based architecture
+
+## Getting Started
+
+Clone the repository:
+
+git clone https://github.com/gabrielfmoreno/github-search.git
+
+Install dependencies:
+
+npm install
+
+Run the project:
+
+npm run dev
+
+## Notes
+
+- The application uses the GitHub public API and may be subject to rate limiting.
+- No authentication token is used by default.
+
+## Author
+
+Gabriel Moreno

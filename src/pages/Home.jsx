@@ -44,13 +44,14 @@ function Home() {
 
   return (
     <Flex
-      height="100vh"
+      minH="100vh"
       align="center"
       justify="center"
       direction="column"
       bg="gray.50"
+      px={4}
     >
-      {/* idioma */}
+      {/* IDIOMA */}
       <Box position="absolute" top="20px" right="20px">
         <Button
           size="sm"
@@ -62,43 +63,49 @@ function Home() {
         </Button>
       </Box>
 
-      {/* logo */}
-      <Text fontSize="4xl" fontWeight="bold" mb={8}>
+      {/* LOGO */}
+      <Text fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold" mb={8}>
         <span style={{ color: "#2B6CB0" }}>{t("searchWord")} </span>
         <span style={{ color: "#805AD5" }}>d_evs</span>
       </Text>
 
-      {/* busca */}
-      <Flex direction="column" align="center" gap={3}>
-        <Flex gap={3}>
-          <InputGroup width="300px">
-            <InputLeftElement pointerEvents="none">
-              <SearchIcon color="gray.400" />
-            </InputLeftElement>
+      {/* BUSCA */}
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        align="center"
+        gap={3}
+        width="100%"
+        maxW="400px"
+      >
+        <InputGroup flex="1">
+          <InputLeftElement pointerEvents="none">
+            <SearchIcon color="gray.400" />
+          </InputLeftElement>
 
-            <Input
-              placeholder={t("placeholder")}
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-                setErrorKey("");
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleSearch();
-              }}
-            />
-          </InputGroup>
+          <Input
+            placeholder={t("placeholder")}
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setErrorKey("");
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
+          />
+        </InputGroup>
 
-          <Button colorScheme="purple" onClick={handleSearch}>
-            {t("search")}
-          </Button>
-        </Flex>
-
-        {/* erro */}
-        {errorKey && (
-          <Text color="red.500">{t(errorKey)}</Text>
-        )}
+        <Button width={{ base: "100%", md: "auto" }} colorScheme="purple" onClick={handleSearch}>
+          {t("search")}
+        </Button>
       </Flex>
+
+      {/* ERRO */}
+      {errorKey && (
+        <Text color="red.500" mt={3}>
+          {t(errorKey)}
+        </Text>
+      )}
     </Flex>
   );
 }

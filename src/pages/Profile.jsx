@@ -123,9 +123,15 @@ function Profile() {
   }
 
   return (
-    <Box p={6}>
+    <Box p={{ base: 4, md: 6 }}>
       {/* HEADER */}
-      <Flex justify="space-between" align="center" mb={8}>
+      <Flex
+        justify="space-between"
+        align="center"
+        mb={8}
+        flexDirection={{ base: "column", md: "row" }}
+        gap={4}
+      >
         <Text fontSize="2xl" fontWeight="bold">
           <span style={{ color: "#2B6CB0" }}>
             {t("searchWord")}{" "}
@@ -134,7 +140,7 @@ function Profile() {
         </Text>
 
         {/* BUSCA */}
-        <InputGroup maxW="300px">
+        <InputGroup width={{ base: "100%", md: "300px" }}>
           <InputLeftElement pointerEvents="none">
             <SearchIcon color="gray.400" />
           </InputLeftElement>
@@ -169,10 +175,15 @@ function Profile() {
       )}
 
       {/* LAYOUT */}
-      <Flex gap={6} align="flex-start" flexWrap="wrap">
+      <Flex
+        gap={6}
+        align="flex-start"
+        flexWrap="wrap"
+        flexDirection={{ base: "column", md: "row" }}
+      >
         {/* PERFIL */}
         <Box
-          minW="260px"
+          width={{ base: "100%", md: "260px" }}
           p={5}
           border="1px solid #eee"
           borderRadius="12px"
@@ -200,7 +211,6 @@ function Profile() {
                 {user.bio || t("noBio")}
               </Text>
 
-              {/* 🔥 WEBSITE */}
               {user.blog && (
                 <Button
                   mt={3}
@@ -217,7 +227,6 @@ function Profile() {
                 </Button>
               )}
 
-              {/* 🔥 TWITTER */}
               {user.twitter_username && (
                 <Button
                   mt={2}
@@ -232,14 +241,19 @@ function Profile() {
             </>
           )}
 
-             <Button mt={5} width="100%" colorScheme="purple">
-              {t("contact")}
-             </Button>
+          <Button mt={5} width="100%" colorScheme="purple">
+            {t("contact")}
+          </Button>
         </Box>
 
         {/* REPOS */}
-        <Box flex="1">
-          <Select mb={4} maxW="220px" value={sort} onChange={handleSortChange}>
+        <Box flex="1" width="100%">
+          <Select
+            mb={4}
+            maxW={{ base: "100%", md: "220px" }}
+            value={sort}
+            onChange={handleSortChange}
+          >
             <option value="created">{t("sort_created")}</option>
             <option value="updated">{t("sort_updated")}</option>
             <option value="pushed">{t("sort_pushed")}</option>
